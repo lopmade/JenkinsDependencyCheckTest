@@ -1,12 +1,6 @@
 pipeline {
 	agent any
 	stages {
-		stage('Checkout SCM') {
-			steps {
-				git '/var/jenkins_home/workspace/JenkinsDependencyCheckTest'
-			}
-		}
-
 		stage('OWASP DependencyCheck') {
 			steps {
 				dependencyCheck additionalArguments: '--format HTML --format XML', odcInstallation: 'Default'
